@@ -198,13 +198,21 @@ console.log(utente);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
+const etaMedia = utenti.reduce((acc, { eta }) => acc + eta, 0) / utenti.length;
+console.log(etaMedia);
 /* ESERCIZIO 14 — sort
    a) Ordina gli utenti per eta crescente. Stampa l'array di nomi nell'ordine.
    b) Ordina gli utenti per nome alfabeticamente. Stampa l'array di nomi nell'ordine.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const nomiPerEta = [...utenti]
+  .sort((a, b) => a.eta - b.eta)
+  .map((utente) => utente.nome);
+console.log(nomiPerEta);
+
+const nomiAlfabetico = utenti.map((utenti) => utenti.nome).sort();
+console.log(nomiAlfabetico);
 
 /* ESERCIZIO 15 — Chaining
    Componi una catena di metodi che:
@@ -215,3 +223,8 @@ console.log(utente);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const risultato = utenti
+  .filter((utente) => utente.attivo)
+  .map((utente) => `${utente.nome} ${utente.cognome}`)
+  .sort();
+console.log(risultato);
